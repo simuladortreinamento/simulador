@@ -1,6 +1,244 @@
 <!DOCTYPE html>
-<html>
-<body>
-  <h1>Simulador Replan</h1>
-</body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto LIBRA - Treinamento VR Petrobras</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="header-title">LIBRA VR</div>
+      <nav>
+        <ul>
+          <li><a href="#sobre">O Projeto</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#downloads">Downloads</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Projeto <br /><span>LIBRA VR</span></h1>
+        <p>
+          Simulador imersivo de manutenção de bombas hidráulicas desenvolvido
+          para a indústria de petróleo e gás. Segurança, interatividade e
+          redução de custos operacionais.
+        </p>
+        <a href="#sobre" class="cta-button">Saiba Mais</a>
+      </div>
+      <div id="3d-container" class="hero-viewer-container">
+        <div id="loading-text">Carregando modelo 3D...</div>
+      </div>
+    </section>
+
+    <section id="sobre" class="features">
+      <div class="feature-card">
+        <h3>Segurança Primeiro</h3>
+        <p>
+          Treinamento de procedimentos críticos sem exposição a riscos reais.
+          Ideal para ambientes de alta periculosidade como refinarias.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Procedimento LIBRA</h3>
+        <p>
+          Simulação completa de isolamento, bloqueio e etiquetagem, guiando o
+          usuário passo a passo no fechamento de válvulas.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Realidade Virtual</h3>
+        <p>
+          Compatível com Meta Quest 2 e 3, oferecendo interações realistas e
+          manipulação de componentes no ambiente virtual.
+        </p>
+      </div>
+    </section>
+
+    <section id="galeria" class="gallery">
+      <h2>Galeria do Projeto</h2>
+      <p style="color: var(--text-gray); margin-top: 10px">
+        Capturas de tela do simulador e testes in loco com usuários
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/ingame1.jpeg" alt="Captura de tela do simulador VR - Vista geral da bomba" />
+        </div>
+        <div class="gallery-item">
+          <img src="assets/foto1.jpeg" alt="Usuário realizando teste com o simulador VR" />
+        </div>
+        <div class="gallery-item">
+          <img src="assets/ingame2.jpeg" alt="Captura de tela do simulador VR - Interação com válvulas" />
+        </div>
+        <div class="gallery-item">
+          <img src="assets/foto2.jpeg" alt="Teste in loco do treinamento em realidade virtual" />
+        </div>
+        <div class="gallery-item">
+          <img src="assets/ingame3.jpeg" alt="Captura de tela do simulador VR - Procedimento LIBRA" />
+        </div>
+        <div class="gallery-item">
+          <img src="assets/foto3.jpeg" alt="Participante durante sessão de teste do simulador" />
+        </div>
+        <div class="gallery-item">
+          <img src="assets/ingame4.jpeg" alt="Captura de tela do simulador VR - Detalhes dos componentes" />
+        </div>
+        <div class="gallery-item">
+          <img src="assets/foto4.jpeg" alt="Testes com usuários utilizando Meta Quest" />
+        </div>
+        <div class="gallery-item">
+          <img src="assets/ingame5.jpeg" alt="Captura de tela do simulador VR - Ambiente completo" />
+        </div>
+      </div>
+    </section>
+
+    <section id="downloads" class="downloads">
+      <h2>Downloads & Recursos</h2>
+      <p style="color: var(--text-gray); margin-top: 10px; margin-bottom: 40px">
+        Acesse o código-fonte, baixe o aplicativo e materiais do projeto
+      </p>
+
+      <div class="download-grid">
+        <a href="https://github.com/seu-usuario/projeto-libra" target="_blank" class="download-card" rel="noopener noreferrer">
+          <div class="download-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+          </div>
+          <h3>Repositório GitHub</h3>
+          <p>Acesse o código-fonte completo do projeto</p>
+          <span class="download-button">Ver no GitHub →</span>
+        </a>
+
+        <a href="assets/libra-vr.apk" class="download-card" download>
+          <div class="download-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </div>
+          <h3>Download APK</h3>
+          <p>Baixe o aplicativo para Meta Quest 2/3</p>
+          <span class="download-button">Baixar APK →</span>
+        </a>
+
+        <a href="assets/monografia.pdf" class="download-card" download>
+          <div class="download-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h3>Monografia</h3>
+          <p>Documentação técnica completa do projeto</p>
+          <span class="download-button">Baixar PDF →</span>
+        </a>
+
+        <a href="assets/press-release.pdf" class="download-card" download>
+          <div class="download-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h3>Press Release</h3>
+          <p>Material de divulgação e informações para imprensa</p>
+          <span class="download-button">Baixar PDF →</span>
+        </a>
+
+        <a href="assets/banner.pdf" class="download-card" download>
+          <div class="download-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 3h2v4"></path>
+              <path d="M8 3H6v4"></path>
+            </svg>
+          </div>
+          <h3>Banner</h3>
+          <p>Banner do projeto para apresentações e eventos</p>
+          <span class="download-button">Baixar PDF →</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="equipe" class="team">
+      <h2>Equipe de Desenvolvimento</h2>
+      <p style="margin-top: 10px">Parceria PCS - Poli-USP & Petrobras REPLAN</p>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <h4>Bruno Matutani</h4>
+          <span>Engenharia de Computação</span>
+        </div>
+        <div class="team-member">
+          <h4>Henrique Cardoso</h4>
+          <span>Engenharia de Computação</span>
+        </div>
+        <div class="team-member">
+          <h4>Gustavo Palma</h4>
+          <span>Engenharia de Computação</span>
+        </div>
+        <div class="team-member">
+          <h4>Prof. Dr. Ricardo Nakamura</h4>
+          <span>Orientador</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners">
+      <h2>Realização</h2>
+      <div class="partners-container">
+        <img
+          src="assets/poli-logo.png"
+          alt="Logo da Escola Politécnica da USP"
+          class="partner-logo"
+        />
+        <img
+          src="assets/petrobras-logo.png"
+          alt="Logo da Petrobras"
+          class="partner-logo"
+        />
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        &copy; 2025 Projeto LIBRA - Escola Politécnica da USP & Petrobras. Todos
+        os direitos reservados.
+      </p>
+      <p style="font-size: 0.8rem; margin-top: 10px">
+        Disponibilização pública e gratuita para fomento da RV no Brasil.
+      </p>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+      <button class="lightbox-close">&times;</button>
+      <button class="lightbox-prev">&lsaquo;</button>
+      <button class="lightbox-next">&rsaquo;</button>
+      <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-caption"></div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
