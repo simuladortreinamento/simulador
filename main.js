@@ -124,3 +124,74 @@ window.addEventListener("resize", () => {
 });
 
 animate();
+
+
+// ==========================================
+// LIGHTBOX GALLERY FUNCTIONALITY
+// ==========================================
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxCaption = document.querySelector(".lightbox-caption");
+const closeBtn = document.querySelector(".lightbox-close");
+const prevBtn = document.querySelector(".lightbox-prev");
+const nextBtn = document.querySelector(".lightbox-next");
+
+// Get all gallery images
+const galleryItems = document.querySelectorAll(".gallery-item img");
+let currentIndex = 0;
+
+// Open lightbox on image click
+galleryItems.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    openLightbox(index);
+  });
+  // Add pointer cursor
+  img.style.cursor = "pointer";
+});
+
+function openLightbox(index) {
+  currentIndex = index;
+  const img = galleryItems[index];
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightboxCaption.textContent = img.alt;
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden"; // Prevent scrolling
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  document.body.style.overflow = ""; // Restore scrolling
+}
+
+function showNext() {
+  currentIndex = (currentIndex + 1) % galleryItems.length;
+  openLightbox(currentIndex);
+}
+
+function showPrev() {
+  currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+  openLightbox(currentIndex);
+}
+
+// Event listeners
+closeBtn.addEventListener("click", closeLightbox);
+nextBtn.addEventListener("click", showNext);
+prevBtn.addEventListener("click", showPrev);
+
+// Close on background click
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+// Keyboard navigation
+document.addEventListener("keydown", (e) => {
+  if (!lightbox.classList.contains("active")) return;
+
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowRight") showNext();
+  if (e.key === "ArrowLeft") showPrev();
+});
